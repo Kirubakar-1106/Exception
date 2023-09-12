@@ -1,0 +1,13 @@
+package com.onesofts.products.dao;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.onesofts.products.repository.ProductsRepository;
+
+@Repository
+
+public class ProductsDao {
+	@Autowired
+	ProductsRepository productsrep;
+}

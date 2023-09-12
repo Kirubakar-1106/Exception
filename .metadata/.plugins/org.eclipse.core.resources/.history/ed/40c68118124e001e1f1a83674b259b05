@@ -1,0 +1,3 @@
+spring.datasource.url=jdbe:MySQL://localhost:3306/dev_db
+spring.datasource.username=root
+spring.datasource.password=Kiruba@2002

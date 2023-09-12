@@ -1,0 +1,7 @@
+package com.onesofts.employee.exceptions;
+
+public class AgeException {
+	public AgeException(String msg) {
+		super(msg);
+	}
+}

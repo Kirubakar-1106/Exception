@@ -1,0 +1,77 @@
+package com.onesofts.employee.service;
+
+import java.util.Comparator;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.onesofts.employee.dao.EmployeeDao;
+import com.onesofts.employee.entity.Employee;
+
+@Service
+public class EmployeeService {
+	@Autowired
+	EmployeeDao empdao;
+
+	public String insertEmployee(Employee e) {
+		return empdao.insertEmployee(e);
+	}
+
+	public String insertEmployees(List<Employee> v) {
+		return empdao.insertEmployees(v);
+	}
+
+	public Employee getempbyid(int id) {
+		return empdao.getempbyid(id);
+	}
+
+	public String deletebyid(int id) {
+		return empdao.deletebyid(id);
+	}
+
+	public String updatebyid(Employee a) {
+		return empdao.updatebyid(a);
+	}
+
+	public List<Employee> getallemp() {
+		return empdao.getallemp();
+	}
+
+	public List<Employee> getempbyname(String name) {
+		List<Employee> empbyname = empdao.getempbyname();
+		return empbyname.stream().filter(x -> x.getName().equalsIgnoreCase(name)).collect(Collectors.toList());
+	}
+
+	public List<Employee> getempbysalary(int salary) {
+		List<Employee> empbysal = empdao.getempbysalary();
+		return empbysal.stream().filter(x -> x.getSalary() > salary).collect(Collectors.toList());
+	}
+
+	public List<Employee> getempbygender(String gender) {
+		List<Employee> empbygen = empdao.getempbygender();
+		return empbygen.stream().filter(x -> x.getGender().equalsIgnoreCase(gender)).collect(Collectors.toList());
+	}
+
+	public List<Employee> getempbyage(int age) {
+		List<Employee> empbyage = empdao.getempbyage();
+		return empbyage.stream().filter(x -> x.getAge() > age).collect(Collectors.toList());
+	}
+
+	public Employee getmaxbyage() {
+		List<Employee> getmax = empdao.getmaxbyage();
+		return getmax.stream().max(Comparator.comparingInt(Employee::getAge)).get();
+	}
+
+	public Employee getminbyage() {
+		List<Employee> getmin = empdao.getminbyage();
+		return getmin.stream().min(Comparator.comparingInt(Employee::getAge)).get();
+	}
+
+	public List<Employee> getbysalary(int a, int b) {
+		return empdao.getbysalary(a,b);
+	}
+
+}

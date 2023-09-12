@@ -1,0 +1,5 @@
+package com.onesofts.cars.repository;
+
+public interface CarsRepository {
+
+}

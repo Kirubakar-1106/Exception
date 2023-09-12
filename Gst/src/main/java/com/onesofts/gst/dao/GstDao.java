@@ -1,0 +1,26 @@
+package com.onesofts.gst.dao;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.onesofts.gst.entity.Gst;
+import com.onesofts.gst.repository.GstRepository;
+
+@Repository
+public class GstDao {
+	@Autowired
+	GstRepository gstrep;
+
+	public String addgstlist(List<Gst> c) {
+		gstrep.saveAll(c);
+		return "Gst Added Successfully";
+	}
+
+	public Integer getgstlistbyhsn(int hsn) {
+		return gstrep.getgstlistbyhsn(hsn);
+	
+	}
+
+}

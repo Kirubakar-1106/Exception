@@ -1,0 +1,5 @@
+package com.onesofts.cars.dao;
+
+public class CarsDao {
+
+}

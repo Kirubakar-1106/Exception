@@ -1,0 +1,5 @@
+package com.onesofts.employee.dao;
+
+public class EmployeeDao {
+
+}

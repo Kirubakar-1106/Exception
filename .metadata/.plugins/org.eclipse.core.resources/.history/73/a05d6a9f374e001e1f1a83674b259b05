@@ -1,0 +1,8 @@
+package com.onesofts.cars.repository;
+
+import com.onesofts.cars.entity.Cars;
+
+public interface CarsRepository {
+
+
+}

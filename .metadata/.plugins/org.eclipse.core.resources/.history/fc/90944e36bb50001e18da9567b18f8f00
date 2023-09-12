@@ -1,0 +1,14 @@
+package com.onesofts.products.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.onesofts.products.dao.ProductsDao;
+
+@Service
+public class ProductsServices {
+	@Autowired
+	ProductsDao productsdao;
+	
+
+}

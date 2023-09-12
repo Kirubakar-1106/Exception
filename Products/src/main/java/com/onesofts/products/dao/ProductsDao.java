@@ -1,0 +1,25 @@
+package com.onesofts.products.dao;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.onesofts.products.entity.Products;
+import com.onesofts.products.repository.ProductsRepository;
+
+@Repository
+
+public class ProductsDao {
+	@Autowired
+	ProductsRepository productsrep;
+
+	public String insertproducts(List<Products> p) {
+		productsrep.saveAll(p);
+		return "Products Added Succesfully";
+	}
+
+	public List<Products> getproductslist() {
+		return productsrep.findAll();
+	}
+}

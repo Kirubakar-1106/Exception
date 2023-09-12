@@ -1,0 +1,18 @@
+package com.onesofts.cars.dao;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.onesofts.cars.entity.Cars;
+import com.onesofts.cars.repository.CarsRepository;
+@Repository
+public class CarsDao {
+	@Autowired
+	CarsRepository carsRepository;
+
+	public String insertcars(Cars a) {
+		carsRepository.save(a);
+		return "Cars Saved Succesfully";
+	}
+
+}

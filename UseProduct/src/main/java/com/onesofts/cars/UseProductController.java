@@ -1,0 +1,48 @@
+package com.onesofts.cars;
+
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+import com.onesofts.products.entity.Products;
+
+@RestController
+public class UseProductController {
+	@Autowired
+	RestTemplate rest;
+
+@GetMapping("/productswithgst")
+ public List<Products> calculatepricewithgst(){
+	String url1="http://localhost:8080/productsdetails/getproductsbylist";
+	String url2="http://localhost:8081/gstdetails/getpercentageviahsn/";
+	
+	ResponseEntity<List<Products>>productResponse=rest.exchange(url1, HttpMethod.GET, null,new ParameterizedTypeReference<List<Products>>() {
+		
+	});
+	
+	List<Products> product=productResponse.getBody();
+	
+	for(Products p:product) {
+		int hsncode = p.getHSN();
+		ResponseEntity<Integer>gstResponse=rest.exchange(url2+hsncode, HttpMethod.GET, null, Integer.class);
+		int percentage = gstResponse.getBody();
+		p.setPrice(p.getPrice()+p.getPrice()*percentage/100);
+
+	}
+	return product;
+	
+	
+	
+	
+}
+}

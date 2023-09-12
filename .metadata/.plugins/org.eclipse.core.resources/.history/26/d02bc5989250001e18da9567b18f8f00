@@ -1,0 +1,8 @@
+package com.onesofts.cars;
+
+public class HiController {
+
+	public String getHi() {
+		return "Hi";
+	}
+}

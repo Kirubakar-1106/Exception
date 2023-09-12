@@ -1,0 +1,17 @@
+package com.onesofts.cars.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.onesofts.cars.dao.CarsDao;
+import com.onesofts.cars.entity.Cars;
+@Service
+public class CarsServices {
+	@Autowired
+	CarsDao carsDao;
+
+	public String insertcars(Cars a) {
+		return carsDao.insertcars(a);
+	}
+
+}

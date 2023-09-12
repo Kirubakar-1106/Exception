@@ -1,0 +1,20 @@
+package com.example.demo;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class DemoController {
+   @GetMapping(value="/Hi")
+	public String display() {
+		return "hello world";
+	}
+   @GetMapping(value="/myname")
+   public String myname() {
+	   return "Hello Kirubakar";
+   }
+   @GetMapping(value="/add/{a}/{b}")
+   public int add(@pathvariable int a,@pathvariable int b) {
+	   return a+b;
+   }
+}

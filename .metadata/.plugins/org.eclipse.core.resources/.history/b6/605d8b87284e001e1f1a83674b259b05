@@ -1,0 +1,37 @@
+package com.onesofts.employee.dao;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.onesofts.employee.entity.Employee;
+import com.onesofts.employee.repository.EmployeeRepository;
+import com.onesofts.employee.service.EmployeeService;
+
+@Repository
+public class EmployeeDao {
+	@Autowired
+	EmployeeRepository emprep;
+
+	public String insertEmployee(Employee e) {
+      emprep.save(e);
+		return "Succesfully Saved";
+	}
+
+	public String insertEmployees(List<Employee> v) {
+		emprep.saveAll(v);
+		return "Saved Successfully";
+	}
+
+	public Employee getempbyid(int id) {
+		return emprep.findById(id).get();
+		
+	}
+
+	public List<Employee> getallemp() {
+		return emprep.findAll();
+	}
+
+
+}

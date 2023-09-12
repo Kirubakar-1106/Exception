@@ -1,0 +1,5 @@
+package com.onesofts.products.controller;
+
+public class ProductsController {
+
+}

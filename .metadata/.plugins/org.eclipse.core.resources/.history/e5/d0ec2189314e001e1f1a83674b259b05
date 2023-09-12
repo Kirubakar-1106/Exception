@@ -1,0 +1,5 @@
+package com.onesofts.cars.entity;
+
+public class CarsEntity {
+
+}

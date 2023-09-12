@@ -1,0 +1,37 @@
+package com.onesofts.employee.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.onesofts.employee.dao.EmployeeDao;
+import com.onesofts.employee.entity.Employee;
+
+@Service
+public class EmployeeService {
+	@Autowired
+	EmployeeDao empdao;
+
+	public String insertEmployee(Employee e) {
+		return empdao.insertEmployee(e);
+	}
+
+	public String insertEmployees(List<Employee> v) {
+		return empdao.insertEmployees(v);
+	}
+
+	public Employee getempbyid(int id) {
+		return empdao.getempbyid(id);
+	}
+
+	public String deletebyid(int id) {
+		return empdao.deletebyid(id);
+	}
+
+	public String updatebyid(Employee a) {
+		return empdao.updatebyid(a);
+	}
+
+}

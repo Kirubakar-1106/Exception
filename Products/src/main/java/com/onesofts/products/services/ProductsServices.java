@@ -1,0 +1,25 @@
+package com.onesofts.products.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.onesofts.products.dao.ProductsDao;
+import com.onesofts.products.entity.Products;
+
+@Service
+public class ProductsServices {
+	@Autowired
+	ProductsDao productsdao;
+
+	public String insertproducts(List<Products> p) {
+		return productsdao.insertproducts(p);
+	}
+
+	public List<Products> getproductslist() {
+		return productsdao.getproductslist();
+	}
+	
+
+}

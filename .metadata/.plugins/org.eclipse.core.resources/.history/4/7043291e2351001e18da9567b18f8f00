@@ -1,0 +1,9 @@
+package com.onesofts.gst.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.onesofts.gst.entity.Gst;
+
+public interface GstRepository extends JpaRepository<Gst,Integer> {
+
+}

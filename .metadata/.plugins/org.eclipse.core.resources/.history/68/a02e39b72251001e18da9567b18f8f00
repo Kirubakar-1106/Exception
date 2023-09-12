@@ -1,0 +1,34 @@
+package com.onesofts.cars;
+
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+import com.onesofts.products.entity.Products;
+
+@RestController
+public class UseProductController {
+	RestTemplate rest=new RestTemplate();
+
+@GetMapping("/calculatePricewithgst")
+public ResponseEntity<List<Products>>calculatepricewithgst(){
+	String url1="http://localhost:8080/products";
+	String url2="http://localhost:8081/gst";
+	
+	ResponseEntity<Products>productResponse=rest.exchange(url, HttpMethod.GET, null, Products.class);
+	ResponseEntity<Gst>gstResponse=rest.exchange(url, HttpMethod.GET, null, Gst.class);
+	
+	List<Products> product=Arrays.asList(productResponse.getBody());
+	List<Gst>gstlist=Arrays.asList(gstResponse.getBody());
+	
+	List<ProductWithGst>result
+	
+	
+	
+}

@@ -1,0 +1,59 @@
+package com.example.demo;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class DemoController {
+	@GetMapping(value = "/Hi")
+	public String display() {
+		return "hello world";
+	}
+
+	@GetMapping(value = "/myname")
+	public String myname() {
+		return "Hello Kirubakar";
+	}
+
+	@GetMapping(value = "/add/{a}/{b}")
+	public int add(@PathVariable int a, @PathVariable int b) {
+		return a + b;
+	}
+    @GetMapping(value = "/eligible/{a}")
+	public String voterEligibilty(@PathVariable int a) {
+	   if(a>18) {
+	   return "Eligible for vote"; 
+	   }
+	   else {
+	   return "Not Eligible for vote";
+	   }
+   }
+    @GetMapping(value = "/findsquarenums/{b}")
+    public int findsquarenumbers(@PathVariable int b) {
+    	for(int i=0;i<=b;i++) {
+    	if(i%2==0) {
+        return i;
+    	}
+    	}
+    }
+    @GetMapping(value = "/findfact/{a}")	
+    public int findfactorial(@PathVariable int a) {
+    	int fact=1;
+    	for(int i=a;i>=1;i++) {
+    		fact=fact*i;
+    	return fact;
+    }
+    }
+    
+   @GetMapping(value = "/findprime/{a}")
+    public String findprimeornot(@PathVariable int a) {
+    	if(a%1==0&&a%a==0) {
+        System.out.println("is prime");	
+    	}
+    	else {
+    	System.out.println("not a prime");
+    	}
+    }
+    
+}

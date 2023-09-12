@@ -1,0 +1,39 @@
+package com.onesofts.cars.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.onesofts.cars.dao.CarsDao;
+import com.onesofts.cars.entity.Cars;
+@Service
+public class CarsServices {
+	@Autowired
+	CarsDao carsDao;
+
+	public String insertcars(Cars v) {
+		return carsDao.insertcars(v);
+	}
+
+	public String insertcars2(List<Cars> v) {
+		return carsDao.insertcars2(v);
+	}
+
+	public Cars getcarbyId(int id) {
+		return carsDao.getcarbyId(id);
+	}
+
+	public String deletebyid(int id) {
+		return carsDao.deletebyid(id);
+	}
+
+	public String updatebyid(Cars a) {
+		return carsDao.updatebyid(a);
+	}
+
+	public List<Cars> getallcar() {
+		return carsDao.getallcar();
+	}
+
+}

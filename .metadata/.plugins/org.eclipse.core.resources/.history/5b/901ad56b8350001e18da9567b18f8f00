@@ -1,0 +1,18 @@
+package com.onesofts.employee.exceptions;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+@RestControllerAdvice
+public class GlobalExceptions {
+
+	
+@ExceptionHandler(NameNotFoundException.class)
+public ResponseEntity<Object> NameNotFoundExceptionHandling(NameNotFoundException ne){
+	return new ResponseEntity<>(ne.getMessage(),HttpStatus.NOT_FOUND);
+	
+}
+@ExceptionHandler(Sala)
+}

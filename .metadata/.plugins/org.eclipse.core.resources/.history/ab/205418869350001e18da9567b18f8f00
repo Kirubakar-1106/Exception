@@ -1,0 +1,10 @@
+package com.onesofts.cars;
+
+import org.springframework.web.bind.annotation.GetMapping;
+
+public class HiController {
+@GetMapping(value = "/Hi")
+	public String getHi() {
+		return "Hi";
+	}
+}

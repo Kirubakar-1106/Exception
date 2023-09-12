@@ -1,0 +1,5 @@
+package com.onesofts.employee.exceptions;
+
+public class AgeException {
+
+}
